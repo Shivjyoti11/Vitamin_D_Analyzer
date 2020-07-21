@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "656919353903",
+    "firebase_url": "https://vitamin-d-analyser-79384.firebaseio.com",
+    "project_id": "vitamin-d-analyser-79384",
+    "storage_bucket": "vitamin-d-analyser-79384.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656919353903:android:d419a993d46e11e6de04da",
+        "android_client_info": {
+          "package_name": "com.example.vitamindanalyser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656919353903-97cvdqr9t8v7adpv6d27q4cmf13okgr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vitamindanalyser",
+            "certificate_hash": "fedd8a2363e8fa4c5e3477dcd5b35d061a0ed397"
+          }
+        },
+        {
+          "client_id": "656919353903-q2hanm540tggbqafe345k26h4sd77tpr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1vN0sBo7YEhwACZHNFjbPWz1vtWZUin4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656919353903-q2hanm540tggbqafe345k26h4sd77tpr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

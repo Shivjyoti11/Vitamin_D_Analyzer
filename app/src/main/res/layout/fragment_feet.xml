@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".feet">
+
+    <RadioGroup
+        android:layout_width="387dp"
+        android:layout_height="488dp">
+
+        <RadioButton
+            android:id="@+id/radioButton19"
+            android:layout_width="278dp"
+            android:layout_height="140dp"
+            android:drawableRight="@drawable/feet" />
+
+        <RadioButton
+            android:id="@+id/radioButton20"
+            android:layout_width="276dp"
+            android:layout_height="129dp"
+            android:drawableRight="@drawable/sandals" />
+
+        <RadioButton
+            android:id="@+id/radioButton21"
+            android:layout_width="289dp"
+            android:layout_height="115dp"
+            android:drawableRight="@drawable/shoes" />
+    </RadioGroup>
+</FrameLayout>
