@@ -85,6 +85,7 @@ public class Regster2 extends AppCompatActivity {
                 st=6;
             }
         });
+        Toast.makeText(this, "hdjshf", Toast.LENGTH_SHORT).show();
         done=findViewById(R.id.done);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
