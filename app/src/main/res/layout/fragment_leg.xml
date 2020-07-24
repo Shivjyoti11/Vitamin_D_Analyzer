@@ -12,26 +12,26 @@
 
         <RadioButton
             android:id="@+id/radioButton11"
-            android:layout_width="271dp"
+            android:layout_width="237dp"
             android:layout_height="103dp"
             android:drawableRight="@drawable/bikini" />
 
         <RadioButton
             android:id="@+id/radioButton16"
-            android:layout_width="299dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/shorts" />
 
         <RadioButton
             android:id="@+id/radioButton17"
-            android:layout_width="293dp"
-            android:layout_height="124dp"
+            android:layout_width="257dp"
+            android:layout_height="125dp"
             android:drawableRight="@drawable/kneelength" />
 
         <RadioButton
             android:id="@+id/radioButton18"
-            android:layout_width="294dp"
-            android:layout_height="115dp"
+            android:layout_width="258dp"
+            android:layout_height="118dp"
             android:drawableRight="@drawable/fullpants" />
     </RadioGroup>
 </FrameLayout>

@@ -1,13 +1,23 @@
 package com.example.vitamindanalyser;
 
 public class Register {
-    public Integer skintype;
-    public Float weight;
+    private Integer skintype;
+    private Float weight;
     private Float height;
+    private Float bmi;
+
+    public Float getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(Float bmi) {
+        this.bmi = bmi;
+    }
+
     public Register() {
     }
 
-    public Integer getSkintype(int st) {
+    public Integer getSkintype() {
         return skintype;
     }
 
@@ -15,7 +25,7 @@ public class Register {
         this.skintype = skintype;
     }
 
-    public Float getWeight(Float weight) {
+    public Float getWeight() {
         return weight;
     }
 
@@ -23,7 +33,7 @@ public class Register {
         this.weight = weight;
     }
 
-    public Float getHeight(Float height) {
+    public Float getHeight() {
         return height;
     }
 

@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Register1 extends AppCompatActivity {
 
@@ -38,7 +44,18 @@ public class Register1 extends AppCompatActivity {
         member=new Member();
         reff= FirebaseDatabase.getInstance().getReference().child("Member");
         fAuth=FirebaseAuth.getInstance();
-
+        //get the spinner from the xml.
+        Spinner dropdown = findViewById(R.id.spinner1); //create a list of items for the spinner.
+        String[] items = new String[]{"1", "2", "3","4","5","6","7","8","9","10","11", "12", "13","14","15","16","17","18","19","20",
+                "21", "22", "23","24","25","26","27","28","29","30","31"}; //create an adapter to describe how the items are displayed, adapters are used in several places in android. //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, items);
+        //set the spinners adapter to the pr
+        dropdown.setAdapter(adapter);
+        Spinner dropdown1 = findViewById(R.id.spinner2); //create a list of items for the spinner.
+        String[] items1 = new String[]{"1", "2", "3","4","5","6","7","8","9","10","11", "12"}; //create an adapter to describe how the items are displayed, adapters are used in several places in android. //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, items1);
+        //set the spinners adapter to the pr
+        dropdown1.setAdapter(adapter1);
         register2=(Button) findViewById(R.id.register2);
         register2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +77,9 @@ public class Register1 extends AppCompatActivity {
                 else if(!no.getText().toString().matches("[0-9]{10}")){
                     no.setError("Enter 10 digit number");
                 }
+                else if(dob.length()==0){
+                    dob.setError("Enter date of birth");
+                }
                 else{
                     fAuth.createUserWithEmailAndPassword(em,pas).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -68,10 +88,16 @@ public class Register1 extends AppCompatActivity {
                                 Toast.makeText(Register1.this, "User created Success!!", Toast.LENGTH_SHORT).show();
                                 int dateof=Integer.parseInt(dob.getText().toString().trim());
                                 Long phn=Long.parseLong(no.getText().toString().trim());
+                                String n=no.getText().toString().trim();
                                 member.setName(name.getText().toString().trim());
+                                member.setPassw(pass.getText().toString().trim());
                                 member.setDate(dateof);
                                 member.setNo(phn);
-                                reff.push().setValue(member);
+                                reff.child(n).setValue(member);
+                                SharedPreferences sharedPref = getSharedPreferences("MyData",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("name",no.getText().toString());
+                                editor.commit();
                                 Toast.makeText(Register1.this, "Data Inserted", Toast.LENGTH_SHORT).show();
                                 Intent i =new Intent(Register1.this , Regster2.class);
                                 startActivity(i);

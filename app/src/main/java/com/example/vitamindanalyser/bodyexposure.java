@@ -1,6 +1,7 @@
 package com.example.vitamindanalyser;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -13,17 +14,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class bodyexposure extends AppCompatActivity {
 
-    Button result;
+    Button result,save;
     private Chronometer chronometer;
     private boolean running;
     private long pauseOff;
     long valueoftime=0;
+    public static final String DEFAULT = "N/A";
+    DatabaseReference reff;
+    Time time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodyexposure);
+        time=new Time();
+        reff= FirebaseDatabase.getInstance().getReference().child("Time");
         result=findViewById(R.id.result);
         result.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +60,16 @@ public class bodyexposure extends AppCompatActivity {
 
     }
     public void resetChronometer(View v){
+        chronometer.stop();
+        pauseOff=SystemClock.elapsedRealtime()-chronometer.getBase();
+        running=false;
         chronometer.setBase(SystemClock.elapsedRealtime());
-        valueoftime=valueoftime+(pauseOff/1000);
+        valueoftime=(valueoftime+(pauseOff/1000));
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+        String n = sharedPreferences.getString("name",DEFAULT);
+        Long tim=valueoftime;
+        time.setTimer(tim);
+        reff.child(n).setValue(time);
         Toast.makeText(this, "Time stayed in sun = "+valueoftime+"s", Toast.LENGTH_SHORT).show();
         pauseOff=0;
     }

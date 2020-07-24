@@ -1,9 +1,11 @@
 package com.example.vitamindanalyser;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +14,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Regster2 extends AppCompatActivity {
 
@@ -27,17 +32,19 @@ public class Regster2 extends AppCompatActivity {
     int st=0;
     EditText wt;
     EditText ht;
+    float bmi=0;
+    public static final String DEFAULT = "N/A";
+    DatabaseReference reff;
     Register register;
-    DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regster2);
         wt=findViewById(R.id.wt);
         ht=findViewById(R.id.ht);
+        register=new Register();
+        reff=FirebaseDatabase.getInstance().getReference().child("Register");
         type1=findViewById(R.id.type1);
-        register = new Register();
-        ref= FirebaseDatabase.getInstance().getReference().child("Register");
         type1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +92,6 @@ public class Regster2 extends AppCompatActivity {
                 st=6;
             }
         });
-        Toast.makeText(this, "hdjshf", Toast.LENGTH_SHORT).show();
         done=findViewById(R.id.done);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,13 +106,18 @@ public class Regster2 extends AppCompatActivity {
                     Toast.makeText(Regster2.this, "Enter your height", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    register.getSkintype(st);
-                    Float height=Float.parseFloat(ht.getText().toString().trim());
-                    Float weight=Float.parseFloat(wt.getText().toString().trim());
-                    register.getHeight(height);
-                    register.getWeight(weight);
-                    ref.push().setValue(register);
-                    Toast.makeText(Regster2.this, "Data successfully uploaded", Toast.LENGTH_SHORT).show();
+                    int sta=st;
+                    Float hta=Float.parseFloat(ht.getText().toString().trim());
+                    Float wta=Float.parseFloat(wt.getText().toString().trim());
+                    bmi=((wta*10000)/(hta*hta));
+                    register.setBmi(bmi);
+                    register.setHeight(hta);
+                    register.setWeight(wta);
+                    register.setSkintype(sta);
+                    SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+                    String n = sharedPreferences.getString("name",DEFAULT);
+                    reff.child(n).setValue(register);
+                    Toast.makeText(Regster2.this, "Data successfully uploaded BMI="+bmi, Toast.LENGTH_SHORT).show();
                     Intent in = new Intent(Regster2.this, Home.class);
                     startActivity(in);
                     finish();

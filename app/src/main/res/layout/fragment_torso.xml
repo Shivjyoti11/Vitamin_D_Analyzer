@@ -7,38 +7,38 @@
     tools:context=".torso">
 
     <RadioGroup
-        android:layout_width="431dp"
-        android:layout_height="464dp">
+        android:layout_width="match_parent"
+        android:layout_height="463dp">
 
         <RadioButton
             android:id="@+id/radioButton6"
-            android:layout_width="249dp"
-            android:layout_height="86dp"
+            android:layout_width="245dp"
+            android:layout_height="92dp"
             android:drawableRight="@drawable/upperbody"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/radioButton12"
-            android:layout_width="257dp"
-            android:layout_height="76dp"
+            android:layout_width="243dp"
+            android:layout_height="83dp"
             android:drawableRight="@drawable/tanktop" />
 
         <RadioButton
             android:id="@+id/radioButton14"
-            android:layout_width="260dp"
-            android:layout_height="84dp"
+            android:layout_width="243dp"
+            android:layout_height="81dp"
             android:drawableRight="@drawable/teeshirt" />
 
         <RadioButton
             android:id="@+id/radioButton13"
-            android:layout_width="266dp"
-            android:layout_height="75dp"
+            android:layout_width="245dp"
+            android:layout_height="78dp"
             android:drawableRight="@drawable/quaterseeve" />
 
         <RadioButton
             android:id="@+id/radioButton15"
-            android:layout_width="261dp"
-            android:layout_height="83dp"
+            android:layout_width="245dp"
+            android:layout_height="82dp"
             android:drawableRight="@drawable/fullsleeve" />
 
     </RadioGroup>

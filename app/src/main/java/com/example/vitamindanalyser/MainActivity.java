@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Display;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText pass,em;
+    EditText pass,em,ph;
     TextView btn;
     Button login;
     FirebaseAuth fAuth;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         em=findViewById(R.id.em);
         pass=findViewById(R.id.pass);
+        ph=findViewById(R.id.ph);
         fAuth=FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser()!=null){
             Intent i = new Intent(MainActivity.this , Home.class);
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 if(em.length()==0){
                     Toast.makeText(MainActivity.this, "Enter Email Id", Toast.LENGTH_SHORT).show();
                 }
+                else if(!ph.getText().toString().matches("[0-9]{10}")){
+                    ph.setError("Enter 10 digit number");
+                }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(em.getText().toString()).matches()){
                     em.setError("Enter valid Email-ID");
                 }
@@ -57,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                SharedPreferences sharedPref = getSharedPreferences("MyData",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("name",ph.getText().toString());
+                                editor.commit();
                                 Toast.makeText(MainActivity.this, "Login Successful!!", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(MainActivity.this , Home.class);
                                 startActivity(i);
