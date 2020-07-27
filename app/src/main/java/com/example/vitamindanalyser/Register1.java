@@ -87,11 +87,12 @@ public class Register1 extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(Register1.this, "User created Success!!", Toast.LENGTH_SHORT).show();
                                 int dateof=Integer.parseInt(dob.getText().toString().trim());
+                                int d=2020-dateof;
                                 Long phn=Long.parseLong(no.getText().toString().trim());
                                 String n=no.getText().toString().trim();
                                 member.setName(name.getText().toString().trim());
                                 member.setPassw(pass.getText().toString().trim());
-                                member.setDate(dateof);
+                                member.setDate(d);
                                 member.setNo(phn);
                                 reff.child(n).setValue(member);
                                 SharedPreferences sharedPref = getSharedPreferences("MyData",MODE_PRIVATE);

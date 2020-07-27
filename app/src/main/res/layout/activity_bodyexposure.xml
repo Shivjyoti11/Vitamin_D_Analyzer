@@ -97,9 +97,9 @@
     <Button
         android:id="@+id/arm"
         android:layout_width="wrap_content"
-        android:background="@drawable/fragbtn"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/fragbtn"
         android:onClick="changeFragment"
         android:text="Torso/arm"
         app:layout_constraintStart_toEndOf="@+id/head"
@@ -109,7 +109,7 @@
         android:id="@+id/leg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="5dp"
         android:background="@drawable/fragbtn"
         android:onClick="changeFragment"
         android:text="legs"
@@ -124,7 +124,7 @@
         android:onClick="changeFragment"
         android:text="feet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/leg"
         app:layout_constraintTop_toTopOf="@+id/leg" />
 

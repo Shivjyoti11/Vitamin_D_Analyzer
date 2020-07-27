@@ -7,6 +7,8 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,15 +84,15 @@ public class bodyexposure extends AppCompatActivity {
             ft.replace(R.id.fragment_p, fragment);
             ft.commit();
         }
-        if(view==findViewById(R.id.arm)){
-            fragment =new torso();
+        if(view==findViewById(R.id.leg)){
+            fragment =new leg();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft =fm.beginTransaction();
             ft.replace(R.id.fragment_p, fragment);
             ft.commit();
         }
-        if(view==findViewById(R.id.leg)){
-            fragment =new leg();
+        if(view == findViewById(R.id.arm)){
+            fragment = new torso();
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft =fm.beginTransaction();
             ft.replace(R.id.fragment_p, fragment);
@@ -104,5 +106,24 @@ public class bodyexposure extends AppCompatActivity {
             ft.commit();
         }
     }
-
+    public void checkButton(View view){
+        RadioGroup radioGroup;
+        radioGroup=findViewById(R.id.radiogrp);
+        RadioButton radioButton;
+        int radioId= (radioGroup.getCheckedRadioButtonId());
+        radioButton = findViewById(radioId);
+        /*if (radioId == 1){
+            be= Double.valueOf(4);
+        }
+        if(radioId==2){
+            be= Double.valueOf(3);
+        }
+        if(radioId==3){
+            be= Double.valueOf(2);
+        }
+        if(radioId==4){
+            be= Double.valueOf(1);
+        }
+        Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();*/
+    }
 }

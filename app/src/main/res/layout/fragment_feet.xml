@@ -12,21 +12,25 @@
         android:layout_height="497dp">
 
         <RadioButton
-            android:id="@+id/radioButton19"
+            android:id="@+id/f1"
             android:layout_width="257dp"
             android:layout_height="147dp"
-            android:drawableRight="@drawable/feet" />
+            android:drawableRight="@drawable/feet"
+            android:onClick="checkButton3" />
 
         <RadioButton
-            android:id="@+id/radioButton20"
+            android:id="@+id/f2"
             android:layout_width="252dp"
             android:layout_height="129dp"
-            android:drawableRight="@drawable/sandals" />
+            android:drawableRight="@drawable/sandals"
+            android:onClick="checkButton3" />
 
         <RadioButton
-            android:id="@+id/radioButton21"
+            android:id="@+id/f3"
             android:layout_width="252dp"
             android:layout_height="110dp"
-            android:drawableRight="@drawable/shoes" />
+            android:checked="true"
+            android:drawableRight="@drawable/shoes"
+            android:onClick="checkButton3" />
     </RadioGroup>
 </FrameLayout>

@@ -35,32 +35,92 @@ public class Result extends AppCompatActivity {
     int st;
     int age;
     int uvi;
-    float agf= (float) 0.49;
+    float agf=0;
     float stf;
     float vddose;
     float vdday;
     public static final String DEFAULT = "N/A";
     DatabaseReference reff;
     int date,tm;
-    int sknt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         result=findViewById(R.id.result);
-        //time=10;
+        time=10;
         bsa=10;
         uvi=1;
-        /*age=21;
-        st=3;*/
-        int d;
+        /*age=66;
+        st=2;*/
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
         String n = sharedPreferences.getString("name",DEFAULT);
-       reff= FirebaseDatabase.getInstance().getReference().child("Member").child(n);
+        reff= FirebaseDatabase.getInstance().getReference().child("Member").child(n);
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                date= Integer.parseInt(snapshot.child("date").getValue().toString());
+                age= Integer.parseInt(snapshot.child("date").getValue().toString());
+                if(age<22){
+                    agf=1;
+                }
+                else if(age<41){
+                    agf= (float) 0.83;
+                }
+                else if(age<60){
+                    agf= (float) 0.66;
+                }
+                else{
+                    agf= (float) 0.49;
+                }
+                SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+                String n = sharedPreferences.getString("name",DEFAULT);
+                reff= FirebaseDatabase.getInstance().getReference().child("Register").child(n);
+                reff.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        st= Integer.parseInt(snapshot.child("skintype").getValue().toString());
+                        if(st==1){
+                            stf=1;
+                        }
+                        else if(st==2){
+                            stf= (float) 1.5;
+                        }
+                        else if(st==3){
+                            stf=2;
+                        }
+                        else if(st==4){
+                            stf=3;
+                        }
+                        else if(st==5){
+                            stf=5;
+                        }
+                        else if(st==6){
+                            stf=8;
+                        }
+                        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+                        String n = sharedPreferences.getString("name",DEFAULT);
+                        reff= FirebaseDatabase.getInstance().getReference().child("Time").child(n);
+                        reff.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                tm= Integer.parseInt(snapshot.child("timer").getValue().toString());
+                                vddose= (float) (uvi*2.41);
+                                vdday=(vddose*agf*stf*time*bsa*4861)/10200;
+                                Toast.makeText(Result.this, "stf="+stf+"agf="+agf+"vddose="+vddose+"vdday="+vdday, Toast.LENGTH_SHORT).show();
+                                result.setText(String.valueOf(vdday));
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override
@@ -68,68 +128,7 @@ public class Result extends AppCompatActivity {
 
             }
         });
-        reff= FirebaseDatabase.getInstance().getReference().child("Register").child(n);
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                sknt= Integer.parseInt(snapshot.child("skintype").getValue().toString());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        reff= FirebaseDatabase.getInstance().getReference().child("Time").child(n);
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                tm= Integer.parseInt(snapshot.child("timer").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        //d=Integer.parseInt(date);
-        age=2020-date;
-        time=tm;
-        //time=Long.parseLong(tm);
-        st=sknt;
-        if(age<22){
-            agf=1;
-        }
-        else if(age<41){
-            agf= (float) 0.83;
-        }
-        else if(age<60){
-            agf= (float) 0.66;
-        }
-        else{
-            agf= (float) 0.49;
-        }
-        if(st==1){
-            stf=1;
-        }
-        else if(st==2){
-            stf= (float) 1.5;
-        }
-        else if(st==3){
-            stf=2;
-        }
-        else if(st==4){
-            stf=3;
-        }
-        else if(st==5){
-            stf=5;
-        }
-        else if(st==6){
-            stf=8;
-        }
-        vddose= (float) (uvi*2.41);
-        vdday=(vddose*agf*stf*time*bsa*4861)/10200;
-        Toast.makeText(this, "stf="+stf+"agf="+agf+"VD dose="+vddose+" VD per day="+vdday, Toast.LENGTH_SHORT).show();
         info=findViewById(R.id.info);
         info.setOnClickListener(new View.OnClickListener() {
             @Override

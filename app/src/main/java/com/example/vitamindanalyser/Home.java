@@ -4,12 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,8 +31,11 @@ public class Home extends AppCompatActivity {
     Button nutrient;
     Dialog myDialog;
     TextView nam;
+    ProgressBar progressBar;
     public static final String DEFAULT = "N/A";
     DatabaseReference ref;
+    Double vdd;
+    int percent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,7 @@ public class Home extends AppCompatActivity {
         nutrient=findViewById(R.id.nutrients);
         myDialog=new Dialog(this);
         nam=findViewById(R.id.name);
+        progressBar=findViewById(R.id.progressBar);
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
         String n = sharedPreferences.getString("name",DEFAULT);
         ref= FirebaseDatabase.getInstance().getReference().child("Member").child(n);
@@ -51,6 +59,23 @@ public class Home extends AppCompatActivity {
 
             }
         });
+        Resources resources = getResources();
+        Rect bounds = progressBar.getProgressDrawable().getBounds();
+        vdd= Double.valueOf(10);
+        percent= (int) ((vdd/200)*100);
+        if(percent<25) {
+            progressBar.setProgressDrawable(resources.getDrawable(R.drawable.progressbar1));
+        }
+        else if (percent<75){
+            progressBar.setProgressDrawable(resources.getDrawable(R.drawable.progressbar2));
+        }
+        else {
+            progressBar.setProgressDrawable(resources.getDrawable(R.drawable.progressbar));
+        }
+        progressBar.getProgressDrawable().setBounds(bounds);
+        progressBar.setProgress(percent);
+
+
         result=findViewById(R.id.result);
         result.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +90,6 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(Home.this , bodyexposure.class);
                 startActivity(i);
-                finish();
             }
         });
         logout=findViewById(R.id.logout);
@@ -90,5 +114,7 @@ public class Home extends AppCompatActivity {
             }
         });
         myDialog.show();
+        Intent in = new Intent(Home.this , Nutrients.class);
+        startActivity(in);
     }
 }
