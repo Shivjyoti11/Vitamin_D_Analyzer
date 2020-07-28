@@ -1,21 +1,30 @@
-package com.example.vitamindanalyser;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.vitamindanalyser.ui.gallery;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.vitamindanalyser.Home;
+import com.example.vitamindanalyser.MainActivity;
+import com.example.vitamindanalyser.Nutrients;
+import com.example.vitamindanalyser.R;
+import com.example.vitamindanalyser.Result;
+import com.example.vitamindanalyser.bodyexposure;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Home extends AppCompatActivity {
+import static android.content.Context.MODE_PRIVATE;
+
+public class GalleryFragment extends Fragment {
 
     Button logout;
     Button start;
@@ -36,21 +47,32 @@ public class Home extends AppCompatActivity {
     DatabaseReference ref;
     Double vdd;
     int percent;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        nutrient=findViewById(R.id.nutrients);
-        myDialog=new Dialog(this);
-        nam=findViewById(R.id.name);
-        progressBar=findViewById(R.id.progressBar);
-        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+    private GalleryViewModel galleryViewModel;
+
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        galleryViewModel =
+                ViewModelProviders.of(this).get(GalleryViewModel.class);
+        final View root = inflater.inflate(R.layout.fragment_gallery, container, false);
+        /*final TextView textView = root.findViewById(R.id.text_gallery);
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
+            }
+        });*/
+
+        nutrient=root.findViewById(R.id.nutrients);
+        myDialog=new Dialog(getActivity());
+        nam=root.findViewById(R.id.name);
+        progressBar=root.findViewById(R.id.progressBar);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyData", MODE_PRIVATE);
         String n = sharedPreferences.getString("name",DEFAULT);
         ref= FirebaseDatabase.getInstance().getReference().child("Member").child(n);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String name=snapshot.child("name").getValue().toString();
+                String name = snapshot.child("name").getValue().toString();
                 nam.setText(name);
             }
 
@@ -76,34 +98,42 @@ public class Home extends AppCompatActivity {
         progressBar.setProgress(percent);
 
 
-        result=findViewById(R.id.result);
+        result=root.findViewById(R.id.result);
         result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(Home.this , Result.class);
+                Intent in = new Intent(getActivity() , Result.class);
                 startActivity(in);
             }
         });
-        start=findViewById(R.id.start);
+        start=root.findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(Home.this , bodyexposure.class);
+                Intent i=new Intent(getActivity() , bodyexposure.class);
                 startActivity(i);
             }
         });
-        logout=findViewById(R.id.logout);
+        logout=root.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent in = new Intent(Home.this , MainActivity.class);
+                Intent in = new Intent(getActivity(), MainActivity.class);
                 startActivity(in);
-                finish();
+                getActivity().finish();
             }
         });
+        nutrient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getActivity(),Nutrients.class);
+                startActivity(i);
+            }
+        });
+        return root;
     }
-    public void ShowPopUp(View view){
+    /*public void ShowPopUp(View view){
         TextView textclose;
         myDialog.setContentView(R.layout.custompopup);
         textclose=(TextView) myDialog.findViewById(R.id.txt);
@@ -114,7 +144,7 @@ public class Home extends AppCompatActivity {
             }
         });
         myDialog.show();
-        Intent in = new Intent(Home.this , Nutrients.class);
+        Intent in = new Intent(getActivity() , Nutrients.class);
         startActivity(in);
-    }
+    }*/
 }

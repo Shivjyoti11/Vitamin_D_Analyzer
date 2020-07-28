@@ -1,5 +1,6 @@
 package com.example.vitamindanalyser;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -19,10 +20,10 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class head extends Fragment {
 RadioGroup radioGroup;
-RadioButton radioButton;
-Double be;
+RadioButton head,cap,cowboy,benie,radioButton;
+Double be= Double.valueOf(0);
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_head, container, false);
         radioGroup=view.findViewById(R.id.rgh);
@@ -31,24 +32,47 @@ Double be;
         //editor.putString("name",no.getText().toString());
         editor.putString("bodyexposed", String.valueOf(be));
         editor.commit();
+        head=view.findViewById(R.id.head);
+        head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int radioId=radioGroup.getCheckedRadioButtonId();
+                radioButton= view.findViewById(radioId);
+                    be= be +Double.valueOf(4);
+
+                //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        benie=view.findViewById(R.id.beanie);
+        benie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = view.findViewById(radioId);
+                be =be+ Double.valueOf(3);
+            }
+        });
+        cap=view.findViewById(R.id.cap);
+        cap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int radioId=radioGroup.getCheckedRadioButtonId();
+                radioButton= view.findViewById(radioId);
+
+                    be=be+ Double.valueOf(2);
+                //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        cowboy=view.findViewById(R.id.cowboy);
+        cowboy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int radioId=radioGroup.getCheckedRadioButtonId();
+                radioButton= view.findViewById(radioId);
+                    be= be+Double.valueOf(1);
+                //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
-    public void checkButton(View view){
-        int radioId= (radioGroup.getCheckedRadioButtonId());
-        radioButton= view.findViewById(radioId);
-        if (radioId == 1){
-            be= Double.valueOf(4);
-        }
-        if(radioId==2){
-            be= Double.valueOf(3);
-        }
-        if(radioId==3){
-            be= Double.valueOf(2);
-        }
-        if(radioId==4){
-            be= Double.valueOf(1);
-        }
-        Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
-    }
-
 }

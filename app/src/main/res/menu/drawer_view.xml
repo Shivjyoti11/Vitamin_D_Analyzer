@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_gallery"
+            android:icon="@drawable/nutrition"
+            android:title="Nutrition"/>
+
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/bmi"
+            android:title="BMI"/>
+
+        <item android:id="@+id/nav_slideshow"
+            android:icon="@drawable/sun"
+            android:title="Vitamin D table"/>
+
+    </group>
+
+    <item android:title="Other">
+
+        <menu>
+            <item android:id="@+id/nav_update"
+                android:icon="@drawable/update"
+                android:title="Update Info"/>
+
+            <item android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="LOG OUT"/>
+        </menu>
+    </item>
+</menu>

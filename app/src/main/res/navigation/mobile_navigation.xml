@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        app:startDestination="@+id/galleryScreen"
+        tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/galleryScreen"
+        android:label="Home"
+        android:name="com.example.vitamindanalyser.ui.gallery.GalleryFragment"
+        tools:layout="@layout/fragment_gallery"/>
+
+
+    <action android:id="@+id/action_gallery_to_home"
+        app:destination="@+id/home"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:label="@string/menu_home"
+        android:name="com.example.vitamindanalyser.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+
+
+
+    <fragment
+        android:id="@+id/slideshowScreen"
+        android:label="@string/menu_slideshow"
+        android:name="com.example.vitamindanalyser.ui.slideshow.SlideshowFragment"
+        tools:layout="@layout/fragment_slideshow" />
+
+</navigation>

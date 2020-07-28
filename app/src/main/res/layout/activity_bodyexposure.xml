@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/arm"
+        android:id="@+id/torso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -113,8 +113,8 @@
         android:background="@drawable/fragbtn"
         android:onClick="changeFragment"
         android:text="legs"
-        app:layout_constraintStart_toEndOf="@+id/arm"
-        app:layout_constraintTop_toTopOf="@+id/arm" />
+        app:layout_constraintStart_toEndOf="@+id/torso"
+        app:layout_constraintTop_toTopOf="@+id/torso" />
 
     <Button
         android:id="@+id/feet"

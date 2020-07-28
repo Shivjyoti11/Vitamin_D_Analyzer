@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ph=findViewById(R.id.ph);
         fAuth=FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser()!=null){
-            Intent i = new Intent(MainActivity.this , Home.class);
+            Intent i = new Intent(MainActivity.this , nd.class);
             startActivity(i);
             finish();
         }

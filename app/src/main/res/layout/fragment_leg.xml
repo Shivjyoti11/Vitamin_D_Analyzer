@@ -7,6 +7,7 @@
     tools:context=".leg">
 
     <RadioGroup
+        android:id="@+id/radiog"
         android:layout_width="match_parent"
         android:layout_height="459dp">
 
@@ -15,28 +16,26 @@
             android:layout_width="237dp"
             android:layout_height="103dp"
             android:drawableRight="@drawable/bikini"
-            android:onClick="checkButton4" />
+            />
 
         <RadioButton
             android:id="@+id/l2"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/shorts"
-            android:onClick="checkButton4" />
+            />
 
         <RadioButton
             android:id="@+id/l3"
             android:layout_width="257dp"
             android:layout_height="125dp"
-            android:drawableRight="@drawable/kneelength"
-            android:onClick="checkButton4" />
+            android:drawableRight="@drawable/kneelength" />
 
         <RadioButton
             android:id="@+id/l4"
             android:layout_width="258dp"
             android:layout_height="118dp"
             android:checked="true"
-            android:drawableRight="@drawable/fullpants"
-            android:onClick="checkButton4" />
+            android:drawableRight="@drawable/fullpants" />
     </RadioGroup>
 </FrameLayout>

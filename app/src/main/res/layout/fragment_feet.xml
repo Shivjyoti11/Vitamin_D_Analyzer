@@ -7,7 +7,7 @@
     tools:context=".feet">
 
     <RadioGroup
-        android:id="@+id/radiogrp"
+        android:id="@+id/radiogp"
         android:layout_width="match_parent"
         android:layout_height="497dp">
 
@@ -15,15 +15,14 @@
             android:id="@+id/f1"
             android:layout_width="257dp"
             android:layout_height="147dp"
-            android:drawableRight="@drawable/feet"
-            android:onClick="checkButton3" />
+            android:drawableRight="@drawable/feet" />
 
         <RadioButton
             android:id="@+id/f2"
             android:layout_width="252dp"
             android:layout_height="129dp"
             android:drawableRight="@drawable/sandals"
-            android:onClick="checkButton3" />
+            />
 
         <RadioButton
             android:id="@+id/f3"
@@ -31,6 +30,6 @@
             android:layout_height="110dp"
             android:checked="true"
             android:drawableRight="@drawable/shoes"
-            android:onClick="checkButton3" />
+            />
     </RadioGroup>
 </FrameLayout>

@@ -7,45 +7,48 @@
     tools:context=".torso">
 
     <RadioGroup
+        android:id="@+id/radio"
         android:layout_width="match_parent"
         android:layout_height="463dp">
 
         <RadioButton
             android:id="@+id/t1"
-            android:layout_width="245dp"
-            android:layout_height="92dp"
-            android:drawableRight="@drawable/upperbody"
-            android:gravity="center"
-            android:onClick="checkButton2" />
+            android:layout_width="124dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/upperbody"
+            android:buttonTint="#f5a742"
+            android:gravity="center" />
 
         <RadioButton
             android:id="@+id/t2"
-            android:layout_width="243dp"
-            android:layout_height="83dp"
-            android:drawableRight="@drawable/tanktop"
-            android:onClick="checkButton2" />
+            android:layout_width="124dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/tanktop" />
 
         <RadioButton
             android:id="@+id/t3"
-            android:layout_width="243dp"
-            android:layout_height="81dp"
+            android:layout_width="124dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
             android:checked="true"
-            android:drawableRight="@drawable/teeshirt"
-            android:onClick="checkButton2" />
+            android:buttonTint="#f5a742"
+            android:drawableLeft="@drawable/teeshirt" />
 
         <RadioButton
             android:id="@+id/t4"
-            android:layout_width="245dp"
-            android:layout_height="78dp"
-            android:drawableRight="@drawable/quaterseeve"
-            android:onClick="checkButton2" />
+            android:layout_width="124dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/quaterseeve" />
 
         <RadioButton
-            android:id="@+id/radioButton15"
-            android:layout_width="245dp"
-            android:layout_height="82dp"
-            android:drawableRight="@drawable/fullsleeve"
-            android:onClick="checkButton2" />
+            android:id="@+id/t5"
+            android:layout_width="124dp"
+            android:layout_height="84dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/fullsleeve" />
 
     </RadioGroup>
 </FrameLayout>

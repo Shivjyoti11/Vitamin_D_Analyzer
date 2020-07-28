@@ -118,7 +118,7 @@ public class Regster2 extends AppCompatActivity {
                     String n = sharedPreferences.getString("name",DEFAULT);
                     reff.child(n).setValue(register);
                     Toast.makeText(Regster2.this, "Data successfully uploaded BMI="+bmi, Toast.LENGTH_SHORT).show();
-                    Intent in = new Intent(Regster2.this, Home.class);
+                    Intent in = new Intent(Regster2.this, nd.class);
                     startActivity(in);
                     finish();
                 }

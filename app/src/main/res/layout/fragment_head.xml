@@ -22,28 +22,25 @@
             android:layout_height="129dp"
             android:checked="true"
             android:drawableRight="@drawable/head"
-            android:onClick="checkButton" />
-
+/>
         <RadioButton
             android:id="@+id/cap"
             android:layout_width="272dp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/cap"
-            android:onClick="checkButton" />
+             />
 
         <RadioButton
             android:id="@+id/beanie"
             android:layout_width="272dp"
             android:layout_height="114dp"
             android:drawableRight="@drawable/beanie"
-            android:onClick="checkButton" />
-
+/>
         <RadioButton
             android:id="@+id/cowboy"
             android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/cowboyhat"
-            android:onClick="checkButton" />
-
+/>
     </RadioGroup>
 </FrameLayout>
