@@ -13,29 +13,39 @@
 
         <RadioButton
             android:id="@+id/l1"
-            android:layout_width="237dp"
+            android:layout_width="160dp"
             android:layout_height="103dp"
-            android:drawableRight="@drawable/bikini"
+            android:buttonTint="#f5a742"
+            android:paddingHorizontal="25dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/bikini"
             />
 
         <RadioButton
             android:id="@+id/l2"
-            android:layout_width="260dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/shorts"
+            android:buttonTint="#f5a742"
+            android:layout_gravity="center"
+            android:paddingHorizontal="10dp"
+            android:drawableLeft="@drawable/shorts"
             />
 
         <RadioButton
             android:id="@+id/l3"
-            android:layout_width="257dp"
+            android:layout_width="157dp"
             android:layout_height="125dp"
-            android:drawableRight="@drawable/kneelength" />
+            android:buttonTint="#f5a742"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/kneelength" />
 
         <RadioButton
             android:id="@+id/l4"
-            android:layout_width="258dp"
+            android:layout_width="158dp"
             android:layout_height="118dp"
             android:checked="true"
-            android:drawableRight="@drawable/fullpants" />
+            android:layout_gravity="center"
+            android:buttonTint="#f5a742"
+            android:drawableLeft="@drawable/fullpants" />
     </RadioGroup>
 </FrameLayout>

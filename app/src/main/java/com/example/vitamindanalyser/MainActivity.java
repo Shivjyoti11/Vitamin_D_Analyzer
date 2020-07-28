@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("name",ph.getText().toString());
                                 editor.commit();
                                 Toast.makeText(MainActivity.this, "Login Successful!!", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(MainActivity.this , Home.class);
+                                Intent i = new Intent(MainActivity.this , nd.class);
                                 startActivity(i);
                                 finish();
                             }

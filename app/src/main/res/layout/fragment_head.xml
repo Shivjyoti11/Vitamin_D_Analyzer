@@ -18,29 +18,39 @@
 
         <RadioButton
             android:id="@+id/head"
-            android:layout_width="266dp"
+            android:layout_width="175dp"
             android:layout_height="129dp"
+            android:layout_gravity="center"
             android:checked="true"
-            android:drawableRight="@drawable/head"
-/>
+            android:buttonTint="#f5a742"
+            android:drawableLeft="@drawable/head" />
         <RadioButton
             android:id="@+id/cap"
-            android:layout_width="272dp"
+            android:layout_width="172dp"
+            android:buttonTint="#f5a742"
+            android:paddingHorizontal="10dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/cap"
+            android:drawableLeft="@drawable/cap"
              />
 
         <RadioButton
             android:id="@+id/beanie"
-            android:layout_width="272dp"
+            android:layout_width="172dp"
             android:layout_height="114dp"
-            android:drawableRight="@drawable/beanie"
+            android:layout_gravity="center"
+            android:paddingHorizontal="10dp"
+            android:buttonTint="#f5a742"
+            android:drawableLeft="@drawable/beanie"
 />
         <RadioButton
             android:id="@+id/cowboy"
-            android:layout_width="265dp"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:drawableRight="@drawable/cowboyhat"
+            android:buttonTint="#f5a742"
+            android:paddingHorizontal="10dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/cowboyhat"
 />
     </RadioGroup>
 </FrameLayout>

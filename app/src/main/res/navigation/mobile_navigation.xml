@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/homeScreen"
-        android:label="@string/menu_home"
+        android:label="Report"
         android:name="com.example.vitamindanalyser.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/slideshowScreen"
-        android:label="@string/menu_slideshow"
+        android:label="Nutrition"
         android:name="com.example.vitamindanalyser.ui.slideshow.SlideshowFragment"
         tools:layout="@layout/fragment_slideshow" />
 

@@ -62,9 +62,6 @@ public class bodyexposure extends AppCompatActivity {
 
     }
     public void resetChronometer(View v){
-        chronometer.stop();
-        pauseOff=SystemClock.elapsedRealtime()-chronometer.getBase();
-        running=false;
         chronometer.setBase(SystemClock.elapsedRealtime());
         valueoftime=(valueoftime+(pauseOff/1000));
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);

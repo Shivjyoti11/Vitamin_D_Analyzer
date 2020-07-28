@@ -97,15 +97,6 @@ public class GalleryFragment extends Fragment {
         progressBar.getProgressDrawable().setBounds(bounds);
         progressBar.setProgress(percent);
 
-
-        result=root.findViewById(R.id.result);
-        result.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(getActivity() , Result.class);
-                startActivity(in);
-            }
-        });
         start=root.findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,27 +115,6 @@ public class GalleryFragment extends Fragment {
                 getActivity().finish();
             }
         });
-        nutrient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i=new Intent(getActivity(),Nutrients.class);
-                startActivity(i);
-            }
-        });
         return root;
     }
-    /*public void ShowPopUp(View view){
-        TextView textclose;
-        myDialog.setContentView(R.layout.custompopup);
-        textclose=(TextView) myDialog.findViewById(R.id.txt);
-        textclose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
-        Intent in = new Intent(getActivity() , Nutrients.class);
-        startActivity(in);
-    }*/
 }

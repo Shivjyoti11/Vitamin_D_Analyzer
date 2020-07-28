@@ -18,11 +18,14 @@
             android:layout_gravity="center"
             android:drawableLeft="@drawable/upperbody"
             android:buttonTint="#f5a742"
+            android:paddingHorizontal="10dp"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/t2"
             android:layout_width="124dp"
+            android:buttonTint="#f5a742"
+            android:paddingHorizontal="10dp"
             android:layout_height="84dp"
             android:layout_gravity="center"
             android:drawableLeft="@drawable/tanktop" />
@@ -33,6 +36,7 @@
             android:layout_height="84dp"
             android:layout_gravity="center"
             android:checked="true"
+            android:paddingHorizontal="10dp"
             android:buttonTint="#f5a742"
             android:drawableLeft="@drawable/teeshirt" />
 
@@ -41,12 +45,16 @@
             android:layout_width="124dp"
             android:layout_height="84dp"
             android:layout_gravity="center"
+            android:paddingHorizontal="10dp"
+            android:buttonTint="#f5a742"
             android:drawableLeft="@drawable/quaterseeve" />
 
         <RadioButton
             android:id="@+id/t5"
             android:layout_width="124dp"
             android:layout_height="84dp"
+            android:buttonTint="#f5a742"
+            android:paddingHorizontal="10dp"
             android:layout_gravity="center"
             android:drawableLeft="@drawable/fullsleeve" />
 
