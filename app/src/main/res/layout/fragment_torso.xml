@@ -35,7 +35,6 @@
             android:layout_width="124dp"
             android:layout_height="84dp"
             android:layout_gravity="center"
-            android:checked="true"
             android:paddingHorizontal="10dp"
             android:buttonTint="#f5a742"
             android:drawableLeft="@drawable/teeshirt" />
@@ -56,7 +55,8 @@
             android:buttonTint="#f5a742"
             android:paddingHorizontal="10dp"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/fullsleeve" />
+            android:drawableLeft="@drawable/fullsleeve" 
+            android:checked="true"/>
 
     </RadioGroup>
 </FrameLayout>

@@ -17,28 +17,26 @@ import android.widget.Toast;
 import org.jetbrains.annotations.NotNull;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.vitamindanalyser.Result.DEFAULT;
 
 public class head extends Fragment {
 RadioGroup radioGroup;
 RadioButton head,cap,cowboy,benie,radioButton;
-Double be= Double.valueOf(0);
+Double beh= Double.valueOf(0);
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_head, container, false);
         radioGroup=view.findViewById(R.id.rgh);
-        SharedPreferences sharedPref = getActivity().getSharedPreferences("MyData",MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        //editor.putString("name",no.getText().toString());
-        editor.putString("bodyexposed", String.valueOf(be));
-        editor.commit();
+        beh= Double.valueOf(0);
+
         head=view.findViewById(R.id.head);
         head.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int radioId=radioGroup.getCheckedRadioButtonId();
                 radioButton= view.findViewById(radioId);
-                    be= be +Double.valueOf(4);
+                    beh=Double.valueOf(4);
 
                 //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
             }
@@ -49,7 +47,7 @@ Double be= Double.valueOf(0);
             public void onClick(View view) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = view.findViewById(radioId);
-                be =be+ Double.valueOf(3);
+                beh=Double.valueOf(3);
             }
         });
         cap=view.findViewById(R.id.cap);
@@ -59,7 +57,7 @@ Double be= Double.valueOf(0);
                 int radioId=radioGroup.getCheckedRadioButtonId();
                 radioButton= view.findViewById(radioId);
 
-                    be=be+ Double.valueOf(2);
+                beh=Double.valueOf(2);
                 //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
             }
         });
@@ -69,10 +67,15 @@ Double be= Double.valueOf(0);
             public void onClick(View view) {
                 int radioId=radioGroup.getCheckedRadioButtonId();
                 radioButton= view.findViewById(radioId);
-                    be= be+Double.valueOf(1);
+                    beh=Double.valueOf(1);
                 //Toast.makeText(getActivity(),"Selected Value"+radioButton.getText(),Toast.LENGTH_SHORT).show();
             }
         });
+        SharedPreferences sharedPref = getActivity().getSharedPreferences("MyDat",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        //editor.putString("name",no.getText().toString());
+        editor.putString("bodyexposedhead", String.valueOf(beh));
+        editor.commit();
         return view;
     }
 }

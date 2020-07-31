@@ -3,6 +3,7 @@ package com.example.vitamindanalyser;
 import android.R.id;
 import android.app.Activity;
 import android.app.Notification;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -61,7 +63,7 @@ public class nd extends AppCompatActivity implements NavigationView.OnNavigation
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_bmi,R.id.nav_vitd)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -116,21 +118,8 @@ public class nd extends AppCompatActivity implements NavigationView.OnNavigation
 
             default:
                 return super.onOptionsItemSelected(menuItem);
-
-
-
-
-
-
-
-
-
         }
-
-
     }
-
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem  menuItem) {
@@ -155,6 +144,24 @@ public class nd extends AppCompatActivity implements NavigationView.OnNavigation
 
                 break;
             }
+            case R.id.nav_bmi:{
+
+                Navigation.findNavController(this,R.id.nav_host_fragment ).navigate(R.id.bmiScreen);
+
+                break;
+            }
+            case R.id.nav_vitd:{
+
+                Navigation.findNavController(this,R.id.nav_host_fragment ).navigate(R.id.vitDScreen);
+
+                break;
+            }
+            case R.id.nav_logout:{
+                logout();
+            }
+            case R.id.nav_update:{
+                updateinfo();
+            }
         }
         menuItem.setChecked(true);
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -169,5 +176,15 @@ public class nd extends AppCompatActivity implements NavigationView.OnNavigation
 
 
     }
-
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(nd.this , MainActivity.class);
+        startActivity(in);
+        finish();
+    }
+    private void updateinfo(){
+        Intent in =new Intent(nd.this,Regster2.class);
+        startActivity(in);
+        finish();
+    }
 }

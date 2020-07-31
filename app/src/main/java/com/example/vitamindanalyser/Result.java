@@ -47,7 +47,7 @@ public class Result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         result=findViewById(R.id.result);
-        time=10;
+        //time=10;
         bsa=10;
         uvi=1;
         /*age=66;
@@ -107,6 +107,19 @@ public class Result extends AppCompatActivity {
                                 vdday=(vddose*agf*stf*time*bsa*4861)/10200;
                                 Toast.makeText(Result.this, "stf="+stf+"agf="+agf+"vddose="+vddose+"vdday="+vdday, Toast.LENGTH_SHORT).show();
                                 result.setText(String.valueOf(vdday));
+                                SharedPreferences sharedPreferences = getSharedPreferences("MyDat", MODE_PRIVATE);
+                                String n = sharedPreferences.getString("bodyexposedtor",DEFAULT);
+                                double a= Double.parseDouble(n);
+                                SharedPreferences sharedPreferences1 = getSharedPreferences("MyDat", MODE_PRIVATE);
+                                String n1 = sharedPreferences1.getString("bodyexposedleg",DEFAULT);
+                                a= a+Double.parseDouble(n1);
+                                SharedPreferences sharedPreferences2 = getSharedPreferences("MyDat", MODE_PRIVATE);
+                                String n2 = sharedPreferences2.getString("bodyexposedhead",DEFAULT);
+                                a= a+Double.parseDouble(n2);
+                                SharedPreferences sharedPreferences3 = getSharedPreferences("MyDat", MODE_PRIVATE);
+                                String n3 = sharedPreferences3.getString("bodyexposedfeet",DEFAULT);
+                                a= a+Double.parseDouble(n3);
+                                result.setText(String.valueOf(a));
                             }
 
                             @Override

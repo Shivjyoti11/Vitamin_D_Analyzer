@@ -26,8 +26,17 @@
         android:name="com.example.vitamindanalyser.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
+    <fragment
+        android:id="@+id/bmiScreen"
+        android:label="BMI"
+        android:name="com.example.vitamindanalyser.ui.bmi.BmiFragment"
+        tools:layout="@layout/fragment_bmi" />
 
-
+    <fragment
+        android:id="@+id/vitDScreen"
+        android:label="Vitamin D table"
+        android:name="com.example.vitamindanalyser.ui.vitd.VitdFragment"
+        tools:layout="@layout/fragment_vitd" />
 
     <fragment
         android:id="@+id/slideshowScreen"

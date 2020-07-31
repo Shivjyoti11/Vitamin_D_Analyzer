@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,64 +48,106 @@ public class Regster2 extends AppCompatActivity {
         register=new Register();
         reff=FirebaseDatabase.getInstance().getReference().child("Register");
         type1=findViewById(R.id.type1);
+        type2=findViewById(R.id.type2);
+        type3=findViewById(R.id.type3);
+        type4=findViewById(R.id.type4);
+        type5=findViewById(R.id.type5);
+        type6=findViewById(R.id.type6);
         type1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type1.setColorFilter(null);
+                type2.setColorFilter(Color.argb(100, 255, 255, 255));
+                type3.setColorFilter(Color.argb(100, 255, 255, 255));
+                type4.setColorFilter(Color.argb(100, 255, 255, 255));
+                type5.setColorFilter(Color.argb(100, 255, 255, 255));
+                type6.setColorFilter(Color.argb(100, 255, 255, 255));// White Tint
                 Toast.makeText(Regster2.this, "Very Fair Skin Type", Toast.LENGTH_SHORT).show();
                 st=1;
             }
         });
-        type2=findViewById(R.id.type2);
         type2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type2.setColorFilter(null);
+                type1.setColorFilter(Color.argb(100, 255, 255, 255));
+                type3.setColorFilter(Color.argb(100, 255, 255, 255));
+                type4.setColorFilter(Color.argb(100, 255, 255, 255));
+                type5.setColorFilter(Color.argb(100, 255, 255, 255));
+                type6.setColorFilter(Color.argb(100, 255, 255, 255));
                 Toast.makeText(Regster2.this, "Fair Skin Type", Toast.LENGTH_SHORT).show();
                 st=2;
             }
         });
-        type3=findViewById(R.id.type3);
+
         type3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type3.setColorFilter(null);
+                type2.setColorFilter(Color.argb(100, 255, 255, 255));
+                type1.setColorFilter(Color.argb(100, 255, 255, 255));
+                type4.setColorFilter(Color.argb(100, 255, 255, 255));
+                type5.setColorFilter(Color.argb(100, 255, 255, 255));
+                type6.setColorFilter(Color.argb(100, 255, 255, 255));
                 Toast.makeText(Regster2.this, "Medium Skin Type", Toast.LENGTH_SHORT).show();
                 st=3;
             }
         });
-        type4=findViewById(R.id.type4);
         type4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type4.setColorFilter(null);
+                type2.setColorFilter(Color.argb(100, 255, 255, 255));
+                type3.setColorFilter(Color.argb(100, 255, 255, 255));
+                type1.setColorFilter(Color.argb(100, 255, 255, 255));
+                type5.setColorFilter(Color.argb(100, 255, 255, 255));
+                type6.setColorFilter(Color.argb(100, 255, 255, 255));
                 Toast.makeText(Regster2.this, "Olive Skin Type", Toast.LENGTH_SHORT).show();
                 st=4;
             }
         });
-        type5=findViewById(R.id.type5);
         type5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type5.setColorFilter(null);
+                type2.setColorFilter(Color.argb(100, 255, 255, 255));
+                type3.setColorFilter(Color.argb(100, 255, 255, 255));
+                type4.setColorFilter(Color.argb(100, 255, 255, 255));
+                type1.setColorFilter(Color.argb(100, 255, 255, 255));
+                type6.setColorFilter(Color.argb(100, 255, 255, 255));
                 Toast.makeText(Regster2.this, "Brown Skin Type", Toast.LENGTH_SHORT).show();
                 st=5;
             }
         });
-        type6=findViewById(R.id.type6);
         type6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type6.setColorFilter(null);
+                type2.setColorFilter(Color.argb(100, 255, 255, 255));
+                type3.setColorFilter(Color.argb(100, 255, 255, 255));
+                type4.setColorFilter(Color.argb(100, 255, 255, 255));
+                type5.setColorFilter(Color.argb(100, 255, 255, 255));
+                type1.setColorFilter(Color.argb(100, 255, 255, 255));
                 Toast.makeText(Regster2.this, "Black Skin Type", Toast.LENGTH_SHORT).show();
                 st=6;
             }
         });
         done=findViewById(R.id.done);
+        done.setBackgroundResource(R.drawable.buttonstyle);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                done.setBackgroundResource(R.drawable.btnclick);
                 if (st==0){
+                    done.setBackgroundResource(R.drawable.buttonstyle);
                     Toast.makeText(Regster2.this, "Please select your skin type", Toast.LENGTH_SHORT).show();
                 }
                 else if (wt.length()==0){
+                    done.setBackgroundResource(R.drawable.buttonstyle);
                     Toast.makeText(Regster2.this, "Enter your weight", Toast.LENGTH_SHORT).show();
                 }
                 else if (ht.length()==0){
+                    done.setBackgroundResource(R.drawable.buttonstyle);
                     Toast.makeText(Regster2.this, "Enter your height", Toast.LENGTH_SHORT).show();
                 }
                 else {

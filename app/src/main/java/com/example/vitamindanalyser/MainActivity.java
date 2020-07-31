@@ -40,21 +40,27 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         login=findViewById(R.id.login);
+        login.setBackgroundResource(R.drawable.buttonstyle);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                login.setBackgroundResource(R.drawable.btnclick);
                 String pas=pass.getText().toString().trim();
                 String emid=em.getText().toString().trim();
                 if(em.length()==0){
+                    login.setBackgroundResource(R.drawable.buttonstyle);
                     Toast.makeText(MainActivity.this, "Enter Email Id", Toast.LENGTH_SHORT).show();
                 }
                 else if(!ph.getText().toString().matches("[0-9]{10}")){
+                    login.setBackgroundResource(R.drawable.buttonstyle);
                     ph.setError("Enter 10 digit number");
                 }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(em.getText().toString()).matches()){
+                    login.setBackgroundResource(R.drawable.buttonstyle);
                     em.setError("Enter valid Email-ID");
                 }
                 else if(pas.length()<6){
+                    login.setBackgroundResource(R.drawable.buttonstyle);
                     pass.setError("Characters should be greater than 6");
                 }
                 else{
@@ -72,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                             }
                             else{
+                                login.setBackgroundResource(R.drawable.buttonstyle);
                                 Toast.makeText(MainActivity.this, "Error"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }

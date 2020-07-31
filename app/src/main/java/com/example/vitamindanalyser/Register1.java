@@ -57,27 +57,35 @@ public class Register1 extends AppCompatActivity {
         //set the spinners adapter to the pr
         dropdown1.setAdapter(adapter1);
         register2=(Button) findViewById(R.id.register2);
+        register2.setBackgroundResource(R.drawable.buttonstyle);
         register2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                register2.setBackgroundResource(R.drawable.btnclick);
                 String pas=pass.getText().toString();
                 String em=emid.getText().toString().trim();
                 if(name.length()==0){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     Toast.makeText(Register1.this, "Enter name", Toast.LENGTH_SHORT).show();
                 }
                 else if(!name.getText().toString().matches("[a-z,A-Z, ]*")){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     name.setError("Enter character only");
                 }
                 else if(!Patterns.EMAIL_ADDRESS.matcher(emid.getText().toString()).matches()){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     emid.setError("Enter valid Email ID");
                 }
                 else if(pas.length()<6){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     pass.setError("Characters should be greater than 6");
                 }
                 else if(!no.getText().toString().matches("[0-9]{10}")){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     no.setError("Enter 10 digit number");
                 }
                 else if(dob.length()==0){
+                    register2.setBackgroundResource(R.drawable.buttonstyle);
                     dob.setError("Enter date of birth");
                 }
                 else{
@@ -105,6 +113,7 @@ public class Register1 extends AppCompatActivity {
                                 finish();
                             }
                             else {
+                                register2.setBackgroundResource(R.drawable.buttonstyle);
                                 Toast.makeText(Register1.this, "Error!!"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }

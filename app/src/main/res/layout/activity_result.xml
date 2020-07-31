@@ -20,20 +20,18 @@
         app:srcCompat="@drawable/sun1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text"
         android:layout_width="216dp"
         android:layout_height="108dp"
-        android:layout_marginEnd="88dp"
         android:gravity="center"
-        android:text="Report"
+        android:text="Vitamin D Consumed"
         android:textColor="#000000"
         android:textColorHint="#FFFFFF"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintBottom_toTopOf="@+id/bargraph"
+        app:layout_constraintEnd_toStartOf="@+id/result"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/info"
@@ -65,13 +63,33 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="216dp"
+        android:layout_height="108dp"
+        android:layout_marginEnd="84dp"
+        android:gravity="center"
+        android:text="Report"
+        android:textColor="#000000"
+        android:textColorHint="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
         android:id="@+id/result"
-        android:layout_width="278dp"
-        android:layout_height="91dp"
+        android:layout_width="154dp"
+        android:layout_height="66dp"
+        android:gravity="center"
         android:text="TextView"
+        android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/bargraph"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.509" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

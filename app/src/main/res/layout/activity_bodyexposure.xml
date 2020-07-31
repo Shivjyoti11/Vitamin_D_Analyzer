@@ -62,6 +62,7 @@
 
     <Button
         android:id="@+id/result"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
@@ -72,7 +73,7 @@
         app:layout_constraintTop_toTopOf="@+id/pause"
         app:layout_constraintVertical_bias="0.857" />
 
-    <fragment
+    <FrameLayout
         android:id="@+id/fragment_p"
         android:name="com.example.vitamindanalyser.head"
         android:layout_width="410dp"
@@ -80,11 +81,11 @@
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head" />
+        app:layout_constraintTop_toBottomOf="@+id/ead" />
 
     <Button
-        android:id="@+id/head"
-        android:background="@drawable/fragbtn"
+        android:id="@+id/ead"
+        android:background="@drawable/buttonstyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -102,8 +103,8 @@
         android:background="@drawable/fragbtn"
         android:onClick="changeFragment"
         android:text="Torso/arm"
-        app:layout_constraintStart_toEndOf="@+id/head"
-        app:layout_constraintTop_toTopOf="@+id/head" />
+        app:layout_constraintStart_toEndOf="@+id/ead"
+        app:layout_constraintTop_toTopOf="@+id/ead" />
 
     <Button
         android:id="@+id/leg"
@@ -127,5 +128,33 @@
         app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toEndOf="@+id/leg"
         app:layout_constraintTop_toTopOf="@+id/leg" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Select what you are wearing!!"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="204dp"
+        android:gravity="center"
+        android:text="Please start your timer if you are out..."
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

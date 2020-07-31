@@ -125,6 +125,9 @@ public class HomeFragment extends Fragment {
                                 vdday=(vddose*agf*stf*time*bsa*4861)/10200;
                                 Toast.makeText(getActivity(), "stf="+stf+"agf="+agf+"vddose="+vddose+"vdday="+vdday, Toast.LENGTH_SHORT).show();
                                 result.setText(String.valueOf(vdday));
+                                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyData", MODE_PRIVATE);
+                                String n = sharedPreferences.getString("bodyexposed",DEFAULT);
+                                result.setText(n);
                             }
 
                             @Override

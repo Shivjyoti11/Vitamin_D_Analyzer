@@ -14,6 +14,14 @@
             android:icon="@drawable/nutrition"
             android:title="Nutrients"/>
 
+        <item android:id="@+id/nav_bmi"
+            android:icon="@drawable/nutrition"
+            android:title="BMI"/>
+
+        <item android:id="@+id/nav_vitd"
+            android:icon="@drawable/nutrition"
+            android:title="Vitamin D Table"/>
+
     </group>
 
     <item android:title="Other">

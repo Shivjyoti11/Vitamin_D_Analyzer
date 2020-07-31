@@ -83,7 +83,12 @@ public class GalleryFragment extends Fragment {
         });
         Resources resources = getResources();
         Rect bounds = progressBar.getProgressDrawable().getBounds();
-        vdd= Double.valueOf(150);
+        /*SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("MyData", MODE_PRIVATE);
+        String vd = sharedPreferences1.getString("vdday",DEFAULT);*/
+        vdd= Double.valueOf(28);
+        /*if(Double.valueOf(n)>0) {
+            vdd = Double.valueOf(vd);
+        }*/
         percent= (int) ((vdd/200)*100);
         if(percent<30) {
             progressBar.setProgressDrawable(resources.getDrawable(R.drawable.progressbar1));
@@ -103,16 +108,6 @@ public class GalleryFragment extends Fragment {
             public void onClick(View view) {
                 Intent i=new Intent(getActivity() , bodyexposure.class);
                 startActivity(i);
-            }
-        });
-        logout=root.findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent in = new Intent(getActivity(), MainActivity.class);
-                startActivity(in);
-                getActivity().finish();
             }
         });
         return root;
